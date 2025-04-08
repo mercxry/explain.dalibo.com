@@ -35,9 +35,7 @@ WORKDIR /app
 # - libpq: PostgreSQL client library (runtime only) (https://pkgs.alpinelinux.org/package/edge/main/x86/libpq)
 # Install Python wheels created in builder stage
 RUN apk add --no-cache libpq && \
-    pip install --no-cache-dir /wheels/*
+    pip install --no-cache-dir /wheels/* && \
+    pip install --no-cache-dir waitress
 
-ENV FLASK_APP="app"
-EXPOSE 5000
-
-CMD ["flask", "run", "--host=0.0.0.0"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]

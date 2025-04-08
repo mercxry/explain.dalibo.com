@@ -38,10 +38,22 @@ FLASK_APP=app python -m flask run
 
 ```shell
 docker compose up -d
-docker compose run web flask db upgrade
 ```
 
 Open [http://0.0.0.0:5000/](http://0.0.0.0:5000/) in your browser.
+
+You can also configure the application through these environment variables:
+
+| Variable     | Default         | Description              |
+| ------------ | --------------- | ------------------------ |
+| `HTTP_HOST`  | `0.0.0.0`       | HTTP server address      |
+| `HTTP_PORT`  | `5000`          | HTTP server port         |
+| `DB_SERVICE` | `0.0.0.0`       | PostgreSQL address       |
+| `DB_PORT`    | `5432`          | PostgreSQL port          |
+| `DB_USER`    | `postgres`      | PostgreSQL username      |
+| `DB_PASS`    | `postgres`      | PostgreSQL password      |
+| `DB_NAME`    | `postgres`      | PostgreSQL database name |
+| `SECRET_KEY` | `aSup3rS33kret` | Application secret key   |
 
 # Build assets
 
